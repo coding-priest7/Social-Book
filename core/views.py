@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.http import HttpResponse
-from .models import Profile, Post, LikePost, FollowersCount
+from .models import Profile, Post, LikePost, FollowersCount, Comment
 from core.models import Profile
+from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from itertools import chain
 import random
+# from . forms import CommentForm
 
 
 # Create your views here.
@@ -261,3 +263,17 @@ def signin(request):
 def logout(request):
     auth.logout(request)
     return redirect('signin')
+
+
+@login_required(login_url='signin')
+def add_comment(request):
+    if request.method == 'POST':
+        user = request.user.username
+        comment = request.POST['comment']
+
+        new_comment = Comment.objects.create(user=user, comment=comment)
+        new_comment.save()
+
+        return redirect('/')
+    else:
+        return redirect('/')
