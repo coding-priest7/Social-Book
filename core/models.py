@@ -28,15 +28,14 @@ class Post(models.Model):
     created_at = models.DateTimeField(default=datetime.now)
     no_of_likes = models.IntegerField(default=0)
 
+    def __str__(self):
+        return self.user
     # @property
     # def get_photo_url(self):
     #     if self.photo and hasattr(self.photo, 'url'):
     #         return self.photo.url
     #     else:
     #         return "static/assets/images/post/img4.jpg"
-
-    def __str__(self):
-        return self.user
 
 
 class LikePost(models.Model):

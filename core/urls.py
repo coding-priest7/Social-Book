@@ -12,5 +12,5 @@ urlpatterns = [
     path('like-post', views.like_post, name='like-post'),
     path('signin', views.signin, name='signin'),
     path('logout', views.logout, name='logout'),
-    path('add-comment', views.add_comment, name='add-comment'),
+    path('add-comment/<uuid:pk>/', views.add_comment, name='add-comment'),
 ]

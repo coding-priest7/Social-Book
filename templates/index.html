@@ -363,8 +363,7 @@
                                 </div>
                                 <div
                                     class="text-gray-700 py-2 px-3 rounded-md bg-gray-100 h-full relative lg:ml-5 ml-2 lg:mr-20   ">
-                                    <p class="leading-6">{{comment.body}}<urna class="i uil-heart"></urna> <i
-                                            class="uil-grin-tongue-wink"> </i> </p>
+                                    <p class="leading-6">{{comment.body}}</p>
                                     <div class="absolute w-3 h-3 top-3 -left-1 bg-gray-100 transform rotate-45 "></div>
                                 </div>
                             </div>
@@ -372,7 +371,7 @@
                         {% endfor %}
                         {% endif %}
 
-                        <form action="add-comment" method="POST" enctype="multipart/form-data">
+                        <form action="{% url 'add-comment' post.pk %}" method="POST" enctype="multipart/form-data">
                             {% csrf_token %}
                             <div>
                                 <!-- Comment section typing box  -->
@@ -381,7 +380,7 @@
                                     <input type="text" placeholder="post a comment"
                                         class="bg-transparent max-h-10 shadow-none" name="comment" id="comment">
                                     <div class="absolute bottom-0 flex h-full items-center right-0 right-3 text-xl space-x-2">
-                                        <button class="button bg-blue-700" type="submit">submit</button>
+                                        <button class="button bg-blue-700" type="submit">comment</button>
                                     </div>
                                 </div>
                         </form>

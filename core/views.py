@@ -266,14 +266,16 @@ def logout(request):
 
 
 @login_required(login_url='signin')
-def add_comment(request):
+def add_comment(request, pk):
     if request.method == 'POST':
         # import pdb
         # pdb.set_trace()
         user = request.user.username
         comment = request.POST['comment']
+        new_comment = Comment.objects.create(
+            name=user, body=comment, post_id=pk
+        )
 
-        new_comment = Comment.objects.create(name=user, body=comment)
         new_comment.save()
 
         return redirect('/')
