@@ -18,11 +18,16 @@
     <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 </head>
 
 <body>
-
     <header>
+        <!-- <div class="home">
+            <video autoplay muted loop>
+              <source src="media/transition.mp4" type="video/mp4" />
+            </video>
+        </div> -->
         <div class="header_inner">
             <form action="/search" method="POST">
                 {% csrf_token %}
@@ -200,7 +205,8 @@
             </div>
         </div>
     </header>
-
+    
+   
     <div class="container m-auto">
 
         <!--<h1 class="lg:text-2xl text-lg font-extrabold leading-none text-gray-900 tracking-tight mb-5"> Feed </h1>--->
