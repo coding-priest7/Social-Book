@@ -1,4 +1,4 @@
 *.env
-bin/
-lib/
+my_env/bin/
+my_env/lib/
 *.sqlite3
