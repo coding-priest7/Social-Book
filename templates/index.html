@@ -379,7 +379,7 @@
                         {% endif %}
 
                         <form action="{% url 'add-comment' post.pk %}" method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
+                        {% csrf_token %}
                             <div>
                                 <!-- Comment section typing box  -->
                                 <div class="bg-gray-100 bg-gray-100 rounded-full rounded-md relative ">
